@@ -3,19 +3,25 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "source": "index.html",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc -b && vite build",
-    "preview": "vite preview"
+    "start": "parcel",
+    "build": "parcel build --no-scope-hoist"
   },
   "dependencies": {
+    "@daypilot/daypilot-lite-vue": "^3.31.0",
+    "date-fns": "^4.1.0",
     "vue": "^3.5.13"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.2.1",
+    "@parcel/transformer-vue": "^2.13.3",
     "@vue/tsconfig": "^0.7.0",
-    "typescript": "~5.6.2",
-    "vite": "^6.0.3",
-    "vue-tsc": "^2.1.10"
+    "parcel": "^2.13.3",
+    "typescript": "^5.7.2",
+    "vue-tsc": "^2.2.0"
+  },
+  "optionalDependencies": {
+    "@parcel/watcher-linux-x64-glibc": "^2.5.0",
+    "@swc/core-linux-x64-gnu": "^1.10.1"
   }
 }
