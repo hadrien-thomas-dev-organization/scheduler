@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@daypilot/daypilot-lite-vue": "^3.31.0",
-    "date-fns": "^4.1.0",
+    "date-fns": "3.1.0",
     "vue": "^3.5.13"
   },
   "devDependencies": {
