@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { DayPilotMonth } from '@daypilot/daypilot-lite-vue';
-import { format } from 'date-fns';
+import { format } from 'date-fns/format';
 import { ref } from 'vue';
 
 const startDate = ref(format(new Date(), 'yyyy-MM-dd'));
