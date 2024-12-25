@@ -53,8 +53,8 @@ jobs:
     steps:
       - name: Debug Secrets
         run: |
-          echo "APP_ID: ${{ secrets.APP_ID }}"
-          echo "Private Key Length: $(echo ${{ secrets.APP_PRIVATE_KEY }} | wc -c)"
+          echo "APP_ID: ${{ secrets.APP_SCHEDULER_WEBAPP_ID }}"
+          echo "Private Key Length: $(echo ${{ secrets.APP_SCHEDULER_WEBAPP_PRIVATE_KEY }} | wc -c)"
       - name: Create github app token
         uses: actions/create-github-app-token@v1
         id: app-token
