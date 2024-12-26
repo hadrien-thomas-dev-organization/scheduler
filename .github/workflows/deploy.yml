@@ -36,6 +36,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Reset to remote state
+        run: |
+          git log --oneline -10
+          git reset --hard origin/${{ github.head_ref }}
+          git log --oneline -10
       - name: Setup Node.js
         uses: actions/setup-node@v4
       - name: Restore dependencies
@@ -63,12 +68,17 @@ jobs:
           token: ${{ steps.app-token.outputs.token }}
           ref: ${{ github.head_ref }}
           persist-credentials: false
-      - name: Configure Git for App Scheduler Engine
+      - name: Configure Git for App Scheduler Webapp
         run: |
           echo "git remote set-url origin https://x-access-token:${{ steps.app-token.outputs.token }}@github.com/${{ github.repository }}"
           git config --global user.name "GitHub App Scheduler Engine"
           git config --global user.email "github-app-scheduler-engine@example.com"
           git remote set-url origin https://x-access-token:${{ steps.app-token.outputs.token }}@github.com/${{ github.repository }}
+      - name: Reset to remote state
+        run: |
+          git log --oneline -10
+          git reset --hard origin/${{ github.head_ref }}
+          git log --oneline -10
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -91,6 +101,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Reset to remote state
+        run: |
+          git log --oneline -10
+          git reset --hard origin/${{ github.head_ref }}
+          git log --oneline -10
       - name: Deploy to firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
