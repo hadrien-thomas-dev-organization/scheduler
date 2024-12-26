@@ -19,6 +19,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Reset to remote state
+        run: |
+          git log --oneline -10
+          git reset --hard origin/main
+          git log --oneline -10
       - name: Setup Node.js
         uses: actions/setup-node@v4
       - name: Cache dependencies
@@ -36,10 +43,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: main
       - name: Reset to remote state
         run: |
           git log --oneline -10
-          git reset --hard origin/${{ github.head_ref }}
+          git reset --hard origin/main
           git log --oneline -10
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -66,7 +75,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ steps.app-token.outputs.token }}
-          ref: ${{ github.head_ref }}
+          ref: main
           persist-credentials: false
       - name: Configure Git for App Scheduler Webapp
         run: |
@@ -77,7 +86,7 @@ jobs:
       - name: Reset to remote state
         run: |
           git log --oneline -10
-          git reset --hard origin/${{ github.head_ref }}
+          git reset --hard origin/main
           git log --oneline -10
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -101,10 +110,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: main
       - name: Reset to remote state
         run: |
           git log --oneline -10
-          git reset --hard origin/${{ github.head_ref }}
+          git reset --hard origin/main
           git log --oneline -10
       - name: Deploy to firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
