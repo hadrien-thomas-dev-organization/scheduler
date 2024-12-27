@@ -1,6 +1,5 @@
 {
   "name": "scheduler",
-  "private": true,
   "version": "0.0.4",
   "type": "module",
   "source": "index.html",
@@ -10,7 +9,6 @@
   },
   "dependencies": {
     "@daypilot/daypilot-lite-vue": "^3.31.0",
-    "date-fns": "3.1.0",
     "vue": "^3.5.13"
   },
   "devDependencies": {
